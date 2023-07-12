@@ -4,9 +4,11 @@ import App from './App.vue'
 
 let instance = null;
 const render = (props = {}) => {
-    const { container } = props;
+    const { container, events } = props;
     instance = createApp(App);
     instance.mount(container || '#app')
+
+    events.emit('fire', '你好');
 }
 
 console.log(window.__MINI_QIANKUN_LOADED__, 'window.__MINI_QIANKUN_LOADED__')
